@@ -7,9 +7,10 @@
   "license": "MIT",
   "private": true,
   "scripts": {
-    "dev": "webpack --config webpack.development.js",
-    "build": "webpack --config webpack.production.js",
-    "start": "node dist/server"
+    "dev": "NODE_ENV=development webpack --config webpack.development.js",
+    "build": "NODE_ENV=production webpack --config webpack.production.js",
+    "start": "node dist/server",
+    "start:env": "node --require dotenv/config dist/server"
   },
   "devDependencies": {
     "@types/webpack-env": "^1.13.9",
@@ -20,5 +21,10 @@
     "webpack-cli": "^3.3.5",
     "webpack-merge": "^4.2.1",
     "webpack-node-externals": "^1.7.2"
+  },
+  "dependencies": {
+    "apollo-server": "^2.6.7",
+    "dotenv": "^8.0.0",
+    "graphql": "^14.4.2"
   }
 }
